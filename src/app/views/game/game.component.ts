@@ -23,24 +23,36 @@ export class GameComponent  {
   shapes=['triangle','square','circle','plus'];
   ngOnInit() {
  console.log('Hello');
-    this.arrCreation();
+ this.arr=this.shapes;
+ this.arr2=this.shapes;
+    this.arr=this.shuffle(this.arr);
+    console.log(this.arr);
+    this.arr2=this.shuffle(this.arr2);
+    console.log(this.arr2);
     
-  }
 
-  arrCreation(){
- console.log('Hello2');
-    var i=0;
-    var _this=this;
-    function arrCreate(){
-      var ind = Math.floor(Math.random() * 3)+0;
-      _this.arr[i]=_this.shapes[ind];
-    console.log(_this.arr);
-      if(i<4){
-        i++;
-        arrCreate();
+    for(var i=0;i<this.arr.length;i++){ 
+      for(var j=0;j<this.arr2.length;j++){
+      console.log('shape'+this.arr2[j]);
+        
+        if(this.arr[i]==this.arr2[j]){
+          this.ansarr.push(j+1);
+        }
       }
     }
-    arrCreate();
+    console.log(this.ansarr);
   }
+
+   shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+  while (0 !== currentIndex) {
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+  return array;
+}
 
 }
