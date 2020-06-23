@@ -7,7 +7,8 @@ import { Router} from '@angular/router';
 
 @Component({
   selector: 'GameComponent',
-  templateUrl: './game.component.html'
+  templateUrl: './game.component.html',
+  styleUrls: [ './game.component.css' ],
 })
 
 export class GameComponent  {
@@ -17,9 +18,9 @@ export class GameComponent  {
   eventText = '';
   level=this.service.level+1;
 
-  arr=['triangle','square','circle','plus'];
+  arr=['triangle','square','circle','cross'];
   ansarr=[];
-  arr2=['triangle','square','circle','plus'];
+  arr2=['triangle','square','circle','cross'];
   ngOnInit() {
  console.log('Hello');
     this.arr=this.shuffle(this.arr);

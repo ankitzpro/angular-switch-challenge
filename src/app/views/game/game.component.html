@@ -1,2 +1,16 @@
 
 <h2>Level :{{level}}</h2>
+<div class="row">
+<div *ngFor="let a of arr;let i = index" >
+  <div  style="width:50px;height:50px;padding:10px" class="btn btn-secondary m-1" data-toggle="tooltip" data-placement="top">
+    <div  [ngClass]="a"></div>
+    </div>
+</div>
+</div>
+<div class="row">
+<div *ngFor="let b of arr2;let j = index" >
+  <div  style="width:50px;height:50px;padding:10px" class="btn btn-secondary m-1" data-toggle="tooltip" data-placement="top">
+    <div  [ngClass]="b"></div>
+    </div>
+</div>
+</div>
