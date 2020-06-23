@@ -22,7 +22,7 @@ score=0;
          this.score=this.score+this.seconds;
        }
        if(this.level==9){
-          this.anstext='Your Final Score: '+this.score;
+          this.anstext='Your Final Score: '+(this.score).toFixed(2);
        }
 
   }
