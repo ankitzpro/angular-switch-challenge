@@ -8,11 +8,20 @@
 .circle {
   height: 30px;
   width: 30px;
-  background-color: red;
+  background-color: yellow;
   border-radius: 50%;
 }
 .square {
   height: 30px;
   width: 30px;
   background-color: green;
+}
+.cross {
+  width: 30px;
+  height: 30px;
+  background: linear-gradient(to bottom, transparent 35%, #d00 35%, #d00 65%,  transparent 65%),
+    linear-gradient(to right, transparent 35%, #d00 35%, #d00 65%, transparent 65%);
+}
+.row{
+  display: flex; justify-content: center;
 }
