@@ -85,4 +85,15 @@ switch(this.randpos){
   return array;
 }
 
+selectAns(ans){
+
+if(ans==this.randpos){
+console.log('correct Ans');
+}
+else{
+console.log('Wrong Ans');
+
+}
+}
+
 }
