@@ -25,7 +25,7 @@ export class StartComponent implements OnInit {
 
   createForm(){
     this.myForm  = this.formBuilder.group({
-     email: ['', Validators.required]
+     email: ['']
    });
    }
 

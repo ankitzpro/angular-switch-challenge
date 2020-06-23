@@ -1,140 +1,46 @@
-import { Component, OnInit ,ElementRef, ViewChildren,QueryList,HostListener} from '@angular/core';
+import { Component} from '@angular/core';
 import { SwitchService} from '../../switch.service';
 
 
 import { Router} from '@angular/router';
 
-export enum KEY_CODE {
-  RIGHT_ARROW = 39,
-  LEFT_ARROW = 37
-}
+
 @Component({
   selector: 'GameComponent',
   templateUrl: './game.component.html'
 })
 
-export class GameComponent implements OnInit {
+export class GameComponent  {
   constructor(private service:SwitchService, private routers:Router ) { }
-@HostListener('window:keyup', ['$event']) w(event: KeyboardEvent) {
 
-
-    if (event.keyCode === KEY_CODE.RIGHT_ARROW) {
-      this.onClick('right');
-     
-    }
-
-    if (event.keyCode === KEY_CODE.LEFT_ARROW) {
-      this.onClick('left');
-    }
-  }
 
   eventText = '';
   level=this.service.level+1;
-pointer=2;
-  btnhide=false;
-seconds=20;
-intervalId: number = 0;
-arr=[];
-arr2=[]
-movingnumber='';
-xaxis=1;
-yaxis=this.service.noofdigits+1;
-sum=0;
+
+  arr=[];
+  ansarr=[];
+  arr2=[];
+  shapes=['triangle','square','circle','plus'];
   ngOnInit() {
-  
-  
-   this.sum= Math.floor(Math.random() * this.service.rangeend) + this.service.rangestart ;
-
-  var b= Math.floor(Math.random() * (this.sum-1)) + this.service.rangestart ;
-  if(this.service.level>5)
-   b= Math.floor(Math.random() * (this.service.rangeend)) + this.service.rangestart;
-for(var i=0; i<this.service.noofdigits;i++){
-  var g= Math.floor(Math.random() * this.service.rangeend) + this.service.rangestart ;
-   if(this.service.level>5)
-   b= Math.floor(Math.random() * (this.service.rangeend)) - this.service.rangestart;
-  this.arr.push(g);
-}
-  const a=this.sum-b;
-
-const rindex=  Math.floor(Math.random() * (this.arr.length)) + 0 ;
-this.arr[rindex]=a;
-const rindex2=  Math.floor(Math.random() * (this.arr.length)) + 0 ;
-this.arr[rindex2]=b;
-
-
-this.movingDown();
+ console.log('Hello');
+    this.arrCreation();
+    
   }
-movingDown(){
- 
-  var _this=this;
-var j=0;
 
-
-var refreshId = setInterval(function(){
- _this.xaxis=1;
-_this.yaxis=0;
-_this.xaxis= Math.floor(Math.random() * 4) + 1 ;
-//console.log('xaxis'+_this.xaxis);
-if(j>_this.service.noofdigits-1){
-     clearInterval(refreshId);
-     var ans=0;
-     for(var k=0;k<_this.arr2.length;k++)
-     ans=ans+_this.arr2[k];
-    if(_this.sum==ans){
-      _this.service.textMaker('You Win');
-      _this.service.score++;
+  arrCreation(){
+ console.log('Hello2');
+    var i=0;
+    var _this=this;
+    function arrCreate(){
+      var ind = Math.floor(Math.random() * 3)+0;
+      _this.arr[i]=_this.shapes[ind];
+    console.log(_this.arr);
+      if(i<4){
+        i++;
+        arrCreate();
+      }
     }
-    else{
-      _this.service.textMaker('You Lose');
-    }
-  _this.service.levelUpdate();
-    _this.routers.navigate(['/timer']);
-   }
-  _this.movingnumber=_this.arr[j];
-  _this.arr[j]='';
-//console.log('j'+j);
-  j++;
-   myLoop();
-   
-},_this.service.secperlevel)
-
-function myLoop():void {    
-  setTimeout(function() {  
-_this.yaxis++;
-//console.log('yaxis'+_this.yaxis);
-if(_this.yaxis<_this.service.noofdigits){
-myLoop();
-}
-else{
-  if(_this.xaxis==_this.pointer)
-  _this.arr2.push(_this.movingnumber);
-}
-  },_this.service.secperdigit)
-  
+    arrCreate();
   }
-
-}
-
-  counter(i: number) {
-    return new Array(i);
-} 
-
-
-
-
-onClick(dir:string){
-  //console.log(event);
-  if(dir=='left'){
-if(this.pointer!=1){
-this.pointer--
-}
-  }
-  else{
-if(this.pointer!=4){
-this.pointer++
-}
-  }
-}
-
 
 }
