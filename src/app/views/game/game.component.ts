@@ -17,14 +17,11 @@ export class GameComponent  {
   eventText = '';
   level=this.service.level+1;
 
-  arr=[];
+  arr=['triangle','square','circle','plus'];
   ansarr=[];
-  arr2=[];
-  shapes=['triangle','square','circle','plus'];
+  arr2=['triangle','square','circle','plus'];
   ngOnInit() {
  console.log('Hello');
- this.arr=this.shapes;
- this.arr2=this.shapes;
     this.arr=this.shuffle(this.arr);
     console.log(this.arr);
     this.arr2=this.shuffle(this.arr2);
@@ -33,7 +30,6 @@ export class GameComponent  {
 
     for(var i=0;i<this.arr.length;i++){ 
       for(var j=0;j<this.arr2.length;j++){
-      console.log('shape'+this.arr2[j]);
         
         if(this.arr[i]==this.arr2[j]){
           this.ansarr.push(j+1);
@@ -41,6 +37,8 @@ export class GameComponent  {
       }
     }
     console.log(this.ansarr);
+    console.log(this.arr);
+    console.log(this.arr2);
   }
 
    shuffle(array) {
