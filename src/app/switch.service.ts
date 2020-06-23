@@ -9,6 +9,9 @@ export class SwitchService {
 
 anstext='';
 
+intervalId: number = 0;
+seconds: number = 5;
 score=0;
 
+  clearTimer() { clearInterval(this.intervalId); }
 }

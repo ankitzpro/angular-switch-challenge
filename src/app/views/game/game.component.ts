@@ -25,6 +25,7 @@ export class GameComponent  {
   ansar2=[];
   ansar3=[];
   randpos:number;
+  seconds:number;
   ngOnInit() {
     this.arr=this.shuffle(this.arr);
     this.arr2=this.shuffle(this.arr2);
@@ -88,12 +89,22 @@ switch(this.randpos){
 selectAns(ans){
 
 if(ans==this.randpos){
-console.log('correct Ans');
-}
+this.service.anstext='Level Passed \n Correct Answer';}
 else{
-console.log('Wrong Ans');
+this.service.anstext='Level Passed \n Correct Answer';
+}
+}
 
-}
-}
+ private countDown(): void {
+    this.service.intervalId = window.setInterval(() => {
+      this.seconds -= 0.1;
+      this.service.seconds=this.seconds;
+      if ((this.seconds).toFixed(1) == '0.0') {
+        this.service.anstext="You didn't attempted";
+        this.routers.navigate(['/timer'])
+      } 
+    }, 100);
+  }
+
 
 }
