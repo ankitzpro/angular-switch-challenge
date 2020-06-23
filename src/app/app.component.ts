@@ -1,6 +1,6 @@
 import { Component,HostListener,Input,OnInit } from '@angular/core';
 import { Router} from '@angular/router';
-import { GameService} from './game.service';
+import { SwitchService} from './switch.service';
 
  
  
@@ -13,7 +13,7 @@ export class AppComponent  {
 
 @Input() gameData:any;
 
-  constructor(private routers:Router,private service:GameService ){
+  constructor(private routers:Router,private service:SwitchService ){
   }
  ngOnInit() {
 

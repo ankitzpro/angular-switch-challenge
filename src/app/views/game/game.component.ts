@@ -1,5 +1,5 @@
 import { Component, OnInit ,ElementRef, ViewChildren,QueryList,HostListener} from '@angular/core';
-import { GameService} from '../../game.service';
+import { SwitchService} from '../../switch.service';
 
 
 import { Router} from '@angular/router';
@@ -14,7 +14,7 @@ export enum KEY_CODE {
 })
 
 export class GameComponent implements OnInit {
-  constructor(private service:GameService, private routers:Router ) { }
+  constructor(private service:SwitchService, private routers:Router ) { }
 @HostListener('window:keyup', ['$event']) w(event: KeyboardEvent) {
 
 

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GameService} from '../../game.service';
+import { SwitchService} from '../../switch.service';
 import { Router} from '@angular/router';
 
 @Component({
@@ -8,7 +8,7 @@ import { Router} from '@angular/router';
 })
 export class TimerComponent implements OnInit {
 
-  constructor(private service: GameService,private routers:Router) { }
+  constructor(private service: SwitchService,private routers:Router) { }
 anstext:String;
 intervalId: number = 0;
 message: string = '';
@@ -26,7 +26,7 @@ this.countDown();
           this.routers.navigate(['/start'])
         }
         else{
-        this.routers.navigate(['/game'])
+        this.routers.navigate(['/switch'])
       } 
     }
     }, 1000);
