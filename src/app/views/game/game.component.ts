@@ -25,7 +25,7 @@ export class GameComponent  {
   ansar2=[];
   ansar3=[];
   randpos:number;
-  seconds:number;
+  seconds:number=5;
   ngOnInit() {
     this.arr=this.shuffle(this.arr);
     this.arr2=this.shuffle(this.arr2);
@@ -42,13 +42,8 @@ export class GameComponent  {
       }
     }
 
-   console.log(this.ansar1);
-   console.log(this.ansar2);
-   console.log(this.ansar3);
-
 this.randpos = Math.floor(Math.random() * 3)+1;
 
-   console.log(this.randpos);
 switch(this.randpos){
  case 1:
  {
@@ -68,9 +63,7 @@ switch(this.randpos){
    break;
    }
    }
-   console.log(this.ansar1);
-   console.log(this.ansar2);
-   console.log(this.ansar3);
+   this.countDown();
 }
   
 
@@ -87,11 +80,13 @@ switch(this.randpos){
 }
 
 selectAns(ans){
+this.service.clearTimer();
 
 if(ans==this.randpos){
-this.service.anstext='Level Passed \n Correct Answer';}
+this.service.scoreCalc('Level Passed \n Correct Answer');this.routers.navigate(['/timer']);
+}
 else{
-this.service.anstext='Level Passed \n Correct Answer';
+this.service.scoreCalc('Level Lost \n Wrong Answer');this.routers.navigate(['/timer']);
 }
 }
 
