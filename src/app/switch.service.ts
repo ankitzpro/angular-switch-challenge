@@ -10,7 +10,7 @@ export class SwitchService {
 anstext='';
 
 intervalId: number = 0;
-seconds: number = 5;
+seconds: number = 10;
 score=0;
 
   clearTimer() { clearInterval(this.intervalId); }
