@@ -25,7 +25,7 @@ export class GameComponent  {
   ansar2=[];
   ansar3=[];
   randpos:number;
-  seconds:number=5;
+  seconds:number=this.service.seconds;
   ngOnInit() {
     this.arr=this.shuffle(this.arr);
     this.arr2=this.shuffle(this.arr2);
