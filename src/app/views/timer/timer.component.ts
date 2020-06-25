@@ -27,6 +27,7 @@ this.service.level++;
           this.routers.navigate(['/start'])
         }
         else{
+        this.service.seconds=10;
         this.routers.navigate(['/game'])
       } 
     }
