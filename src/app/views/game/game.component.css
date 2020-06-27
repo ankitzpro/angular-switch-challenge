@@ -16,7 +16,8 @@
   width: 30px;
   background-color: green;
 }
-.cross {
+.cross 
+{
   width: 30px;
   height: 30px;
   background: linear-gradient(to bottom, transparent 35%, #d00 35%, #d00 65%,  transparent 65%),
